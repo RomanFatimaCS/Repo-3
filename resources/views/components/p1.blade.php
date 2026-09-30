@@ -21,15 +21,7 @@
             </div>
 
             <!-- Card 2 — Payroll Processing -->
-            <div class="rating-card-3">
-                <div class="rating-stars-3">★★★★★</div>
-                <h3 class="rating-title-3">Payroll Processing</h3>
-                <p class="rating-review-3">
-                    Run payroll in minutes, not hours. Calculate salaries, taxes,
-                    and deductions automatically while staying fully compliant
-                    with local regulations.
-                </p>
-            </div>
+            
 
             <!-- Card 3 — Inventory Control -->
            
