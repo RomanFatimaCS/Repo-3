@@ -299,10 +299,7 @@
     }
 
     /* ---------- 3.5: Delete Patient Function ---------- */
-    function deletePatient(index) {
-      if (confirm("Delete this patient?")) {
-        patients.splice(index, 1);
-        renderTable();
+    
       }
     }
 
