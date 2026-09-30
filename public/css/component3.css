@@ -1,0 +1,259 @@
+.rating-section-3 {
+    width: 100%;
+    padding: 3rem 1.5rem;
+    background: radial-gradient(circle at 30% 20%, #2e1065 0%, #1e1b4b 60%, #0f0a2e 100%);
+    perspective: 1400px;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    display: flex;
+    justify-content: center;
+}
+
+.rating-container-3 {
+    max-width: 1100px;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.rating-heading-3 {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: #f5f3ff;
+    margin-bottom: 0.5rem;
+    text-shadow:
+        0 2px 4px rgba(0, 0, 0, 0.5),
+        0 0 20px rgba(168, 85, 247, 0.4);
+}
+
+.rating-subheading-3 {
+    font-size: 1.125rem;
+    color: #c4b5fd;
+    margin-bottom: 2.5rem;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+/* 3 cards side by side */
+.rating-grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    transform-style: preserve-3d;
+}
+
+/* ================================================
+   🟣🌑 3D FLOATING CARD — DARK PURPLE + GOLDEN
+   ================================================ */
+.rating-card-3 {
+    position: relative;
+    border-radius: 22px;
+    padding: 2.2rem 1.8rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    /* DARK PURPLE gradient */
+    background: linear-gradient(145deg, #4c1d95 0%, #2e1065 55%, #1e1b4b 100%);
+
+    color: #ffffff;
+
+    /* Dark purple + golden shadow combo */
+    box-shadow:
+        /* Golden outer glow (top-left) */
+        -6px -6px 14px rgba(255, 215, 0, 0.4),
+        /* Dark purple shadow (bottom-right) */
+        10px 10px 22px rgba(0, 0, 0, 0.6),
+        /* Deep drop shadow */
+        20px 25px 40px rgba(0, 0, 0, 0.5),
+        /* Inner bottom shade */
+        inset 0 -6px 12px rgba(0, 0, 0, 0.5),
+        /* Inner golden highlight */
+        inset 0 6px 12px rgba(255, 215, 0, 0.15);
+
+    border: 1px solid rgba(168, 85, 247, 0.3);
+
+    opacity: 0;
+    transform: translateY(40px) rotateX(-18deg) scale(0.94);
+    transform-style: preserve-3d;
+    will-change: transform, box-shadow;
+
+    transition:
+        opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+        transform 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+        box-shadow 0.5s ease;
+}
+
+/* Golden border effect */
+.rating-card-3::before {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    border-radius: 24px;
+    padding: 2px;
+    background: linear-gradient(145deg, #ffd700 0%, #b8860b 50%, #ffd700 100%);
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    opacity: 0.85;
+    z-index: 0;
+}
+
+.rating-card-3.visible {
+    opacity: 1;
+    transform: translateY(0) rotateX(0) scale(1);
+    animation: floatCard3 4s ease-in-out infinite;
+}
+
+@keyframes floatCard3 {
+    0%   { transform: translateY(0px) rotateX(0deg) rotateY(0deg); }
+    50%  { transform: translateY(-12px) rotateX(2deg) rotateY(-1deg); }
+    100% { transform: translateY(0px) rotateX(0deg) rotateY(0deg); }
+}
+
+/* Har card ka float timing different */
+.rating-card-3:nth-child(1) { animation-delay: 0s; }
+.rating-card-3:nth-child(2) { animation-delay: 0.8s; }
+.rating-card-3:nth-child(3) { animation-delay: 1.6s; }
+
+/* Hover — pause float + 3D tilt + deeper golden glow */
+.rating-card-3:hover {
+    animation-play-state: paused;
+    transform: translateY(-14px) rotateX(8deg) rotateY(-5deg) scale(1.04);
+    box-shadow:
+        -8px -8px 20px rgba(255, 215, 0, 0.6),
+        16px 16px 32px rgba(0, 0, 0, 0.7),
+        30px 38px 65px rgba(0, 0, 0, 0.6),
+        inset 0 -8px 16px rgba(0, 0, 0, 0.55),
+        inset 0 8px 16px rgba(255, 215, 0, 0.25);
+}
+
+.rating-card-3:nth-child(2):hover {
+    transform: translateY(-14px) rotateX(8deg) rotateY(5deg) scale(1.04);
+}
+
+/* ⭐ Stars — Golden */
+.rating-stars-3 {
+    font-size: 1.75rem;
+    letter-spacing: 4px;
+    color: #ffd700;
+    margin-bottom: 1rem;
+    transform: translateZ(30px);
+    transition: transform 0.4s ease;
+    text-shadow:
+        0 1px 0 #b8860b,
+        0 2px 0 #a07408,
+        0 3px 4px rgba(0, 0, 0, 0.6),
+        0 5px 15px rgba(255, 215, 0, 0.5);
+}
+
+.rating-card-3:hover .rating-stars-3 {
+    transform: translateZ(55px) scale(1.05);
+    text-shadow:
+        0 1px 0 #b8860b,
+        0 2px 0 #a07408,
+        0 3px 4px rgba(0, 0, 0, 0.6),
+        0 5px 20px rgba(255, 215, 0, 0.9);
+}
+
+/* 📌 Title — Golden */
+.rating-title-3 {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #ffd700;
+    margin-bottom: 0.85rem;
+    letter-spacing: 0.02em;
+    transform: translateZ(28px);
+    transition: transform 0.4s ease, color 0.4s ease, text-shadow 0.4s ease;
+    text-shadow:
+        0 1px 0 rgba(0, 0, 0, 0.6),
+        0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.rating-card-3:hover .rating-title-3 {
+    transform: translateZ(48px);
+    color: #fff7cc;
+    text-shadow:
+        0 1px 0 rgba(0, 0, 0, 0.6),
+        0 2px 4px rgba(0, 0, 0, 0.5),
+        0 0 25px rgba(255, 215, 0, 0.9);
+}
+
+/* 💬 Review — Soft lavender text */
+.rating-review-3 {
+    font-size: 0.95rem;
+    color: #e9d5ff;
+    margin-bottom: 1rem;
+    line-height: 1.65;
+    flex: 1;
+    transform: translateZ(20px);
+    transition: transform 0.4s ease, color 0.4s ease;
+    text-align: center;
+    text-shadow:
+        0 1px 2px rgba(0, 0, 0, 0.6),
+        0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.rating-card-3:hover .rating-review-3 {
+    transform: translateZ(38px);
+    color: #ffffff;
+}
+
+/* ✨ Shine — Golden shimmer */
+.rating-card-3::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(
+        120deg,
+        rgba(255, 215, 0, 0) 30%,
+        rgba(255, 215, 0, 0.4) 50%,
+        rgba(255, 215, 0, 0) 70%
+    );
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+    z-index: 1;
+}
+
+.rating-card-3:hover::after {
+    opacity: 1;
+}
+
+/* 📱 Responsive */
+@media (max-width: 900px) {
+    .rating-heading-3 { font-size: 2rem; }
+    .rating-grid-3 { gap: 1.5rem; }
+}
+
+@media (max-width: 700px) {
+    .rating-grid-3 {
+        grid-template-columns: 1fr;
+        max-width: 420px;
+        margin: 0 auto;
+    }
+    .rating-section-3 {
+        perspective: 900px;
+        padding: 2rem 1rem;
+        background: radial-gradient(circle at 30% 20%, #2e1065 0%, #0f0a2e 100%);
+    }
+    .rating-card-3:hover {
+        transform: translateY(-10px) rotateX(4deg) scale(1.03);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .rating-card-3,
+    .rating-card-3:hover,
+    .rating-card-3::after,
+    .rating-stars-3,
+    .rating-title-3,
+    .rating-review-3 {
+        transition: none !important;
+        transform: none !important;
+        animation: none !important;
+    }
+}

@@ -1,0 +1,284 @@
+.rating-section {
+    width: 100%;
+    padding: 3rem 1.5rem;
+    background: radial-gradient(circle at 30% 20%, #e2e8f0 0%, #cbd5e1 60%, #94a3b8 100%);
+    perspective: 1400px;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.rating-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.rating-heading {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: #0b1b2f;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.rating-subheading {
+    font-size: 1.125rem;
+    color: #475569;
+    margin-bottom: 2.5rem;
+}
+
+.rating-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    transform-style: preserve-3d;
+}
+
+/* ================================================
+   🔴 3D SHADE CARD — Red Gradient + FLOATING
+   ================================================ */
+.rating-card {
+    position: relative;
+    border-radius: 22px;
+    padding: 2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    background: linear-gradient(145deg, #ff3d6e 0%, #ff6a00 100%);
+
+    /* 3D SHADE */
+    box-shadow:
+        -6px -6px 14px rgba(255, 255, 255, 0.35),
+        10px 10px 22px rgba(180, 0, 60, 0.45),
+        20px 25px 40px rgba(100, 0, 40, 0.35),
+        inset 0 -6px 12px rgba(120, 0, 40, 0.35),
+        inset 0 6px 12px rgba(255, 255, 255, 0.25);
+
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+
+    opacity: 0;
+    transform: translateY(40px) rotateX(-18deg) scale(0.94);
+    transform-style: preserve-3d;
+    will-change: transform, box-shadow;
+
+    /* Entrance transition */
+    transition:
+        opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+        transform 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+        box-shadow 0.5s ease;
+}
+
+/* Entrance complete — ab floating start hoga */
+.rating-card.visible {
+    opacity: 1;
+    transform: translateY(0) rotateX(0) scale(1);
+    animation: floatCard 4s ease-in-out infinite;
+}
+
+/* 🎈 FLOATING ANIMATION — halka sa upar neeche */
+@keyframes floatCard {
+    0% {
+        transform: translateY(0px) rotateX(0deg) rotateY(0deg);
+        box-shadow:
+            -6px -6px 14px rgba(255, 255, 255, 0.35),
+            10px 10px 22px rgba(180, 0, 60, 0.45),
+            20px 25px 40px rgba(100, 0, 40, 0.35),
+            inset 0 -6px 12px rgba(120, 0, 40, 0.35),
+            inset 0 6px 12px rgba(255, 255, 255, 0.25);
+    }
+    50% {
+        transform: translateY(-12px) rotateX(2deg) rotateY(-1deg);
+        box-shadow:
+            -8px -8px 18px rgba(255, 255, 255, 0.4),
+            12px 12px 26px rgba(180, 0, 60, 0.5),
+            24px 30px 50px rgba(100, 0, 40, 0.4),
+            inset 0 -7px 14px rgba(120, 0, 40, 0.4),
+            inset 0 7px 14px rgba(255, 255, 255, 0.3);
+    }
+    100% {
+        transform: translateY(0px) rotateX(0deg) rotateY(0deg);
+        box-shadow:
+            -6px -6px 14px rgba(255, 255, 255, 0.35),
+            10px 10px 22px rgba(180, 0, 60, 0.45),
+            20px 25px 40px rgba(100, 0, 40, 0.35),
+            inset 0 -6px 12px rgba(120, 0, 40, 0.35),
+            inset 0 6px 12px rgba(255, 255, 255, 0.25);
+    }
+}
+
+/* Har card ka float timing thora different — zyada natural lagta hai */
+.rating-card:nth-child(1) {
+    animation-delay: 0s;
+}
+.rating-card:nth-child(2) {
+    animation-delay: 0.6s;
+}
+.rating-card:nth-child(3) {
+    animation-delay: 1.2s;
+}
+
+/* Hover pe animation ruk jaye aur 3D tilt ho */
+.rating-card:hover {
+    animation-play-state: paused;
+    transform: translateY(-14px) rotateX(8deg) rotateY(-5deg) scale(1.04);
+    box-shadow:
+        -8px -8px 18px rgba(255, 255, 255, 0.4),
+        14px 14px 30px rgba(180, 0, 60, 0.5),
+        28px 35px 60px rgba(100, 0, 40, 0.45),
+        inset 0 -8px 16px rgba(120, 0, 40, 0.4),
+        inset 0 8px 16px rgba(255, 255, 255, 0.3);
+}
+
+.rating-card:nth-child(2):hover {
+    transform: translateY(-14px) rotateX(8deg) rotateY(5deg) scale(1.04);
+}
+
+/* ================================================
+   ⭐ STARS — 3D embossed
+   ================================================ */
+.rating-stars {
+    font-size: 1.75rem;
+    letter-spacing: 4px;
+    color: #ffd700;
+    margin-bottom: 1rem;
+    transform: translateZ(30px);
+    transition: transform 0.4s ease;
+    text-shadow:
+        0 1px 0 #b8860b,
+        0 2px 0 #a07408,
+        0 3px 4px rgba(0, 0, 0, 0.4),
+        0 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.rating-card:hover .rating-stars {
+    transform: translateZ(55px) scale(1.05);
+}
+
+/* ================================================
+   💬 REVIEW — engraved look
+   ================================================ */
+.rating-review {
+    font-size: 1rem;
+    color: #ffffff;
+    margin-bottom: 1.25rem;
+    line-height: 1.6;
+    flex: 1;
+    transform: translateZ(20px);
+    transition: transform 0.4s ease;
+    text-shadow:
+        0 1px 1px rgba(0, 0, 0, 0.4),
+        0 2px 3px rgba(0, 0, 0, 0.2);
+}
+
+.rating-card:hover .rating-review {
+    transform: translateZ(40px);
+}
+
+/* ================================================
+   👤 CLIENT — 3D divider
+   ================================================ */
+.rating-client {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding-top: 0.7rem;
+    width: 70px;
+    border-top: 2px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 2px 4px rgba(120, 0, 40, 0.4);
+    transform: translateZ(15px);
+    transition: width 0.3s ease, transform 0.4s ease, color 0.3s ease;
+    text-shadow:
+        0 1px 0 rgba(0, 0, 0, 0.4),
+        0 2px 3px rgba(0, 0, 0, 0.3);
+}
+
+.rating-card:hover .rating-client {
+    width: 100px;
+    color: #ffd700;
+    transform: translateZ(30px);
+}
+
+/* ================================================
+   ✨ SHINE
+   ================================================ */
+.rating-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(
+        120deg,
+        rgba(255, 255, 255, 0) 30%,
+        rgba(255, 255, 255, 0.45) 50%,
+        rgba(255, 255, 255, 0) 70%
+    );
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+}
+
+.rating-card:hover::after {
+    opacity: 1;
+}
+
+/* ================================================
+   🌑 TOP BEVEL
+   ================================================ */
+.rating-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 10%;
+    right: 10%;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.7),
+        transparent
+    );
+    border-radius: 20px;
+    pointer-events: none;
+}
+
+/* ================================================
+   RESPONSIVE
+   ================================================ */
+@media (max-width: 900px) {
+    .rating-heading { font-size: 2rem; }
+    .rating-grid { gap: 1.5rem; }
+}
+
+@media (max-width: 700px) {
+    .rating-grid {
+        grid-template-columns: 1fr;
+        max-width: 420px;
+        margin: 0 auto;
+    }
+    .rating-section {
+        perspective: 900px;
+        padding: 2rem 1rem;
+        background: radial-gradient(circle at 30% 20%, #e2e8f0 0%, #94a3b8 100%);
+    }
+    .rating-card:hover {
+        transform: translateY(-10px) rotateX(4deg) scale(1.03);
+    }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .rating-card,
+    .rating-card:hover,
+    .rating-card::after,
+    .rating-stars,
+    .rating-review,
+    .rating-client {
+        transition: none !important;
+        transform: none !important;
+        animation: none !important;
+    }
+}

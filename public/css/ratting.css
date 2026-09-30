@@ -1,0 +1,220 @@
+/* ========== RATING SECTION ========== */
+.rating-section {
+  width: 100%;
+  padding: 3rem 1.5rem;
+  background: #f8fafc;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  /* 3D perspective for children */
+  perspective: 1400px;
+  perspective-origin: center center;
+}
+
+.rating-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.rating-heading {
+  font-size: 2.25rem;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  color: #0b1b2f;
+  margin-bottom: 0.5rem;
+}
+
+.rating-subheading {
+  font-size: 1.125rem;
+  font-weight: 400;
+  color: #475569;
+  margin-bottom: 2.5rem;
+}
+
+/* ---------- grid ---------- */
+.rating-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  justify-content: center;
+  align-items: stretch;
+  /* keep 3D space for children */
+  transform-style: preserve-3d;
+}
+
+/* ---------- card (3D) ---------- */
+.rating-card {
+  position: relative;
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 2rem 1.5rem 1.8rem;
+  box-shadow:
+    0 12px 30px -8px rgba(0, 0, 0, 0.08),
+    0 4px 12px -2px rgba(0, 0, 0, 0.02);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  border: 1px solid rgba(226, 232, 240, 0.6);
+
+  /* 3D setup */
+  transform-style: preserve-3d;
+  transform-origin: center center;
+  will-change: transform, box-shadow;
+
+  /* initial hidden state for entrance */
+  opacity: 0;
+  transform: translateY(40px) rotateX(-20deg) scale(0.92);
+
+  /* smooth transitions */
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.4s ease;
+}
+
+/* entrance complete */
+.rating-card.visible {
+  opacity: 1;
+  transform: translateY(0) rotateX(0deg) scale(1);
+}
+
+/* 3D hover lift */
+.rating-card:hover {
+  transform:
+    translateY(-12px)
+    rotateX(6deg)
+    rotateY(-4deg)
+    scale(1.03);
+  box-shadow:
+    0 30px 50px -12px rgba(0, 0, 0, 0.22),
+    0 12px 24px -8px rgba(0, 0, 0, 0.08);
+}
+
+/* alternate tilt direction for middle card (optional, more dynamic) */
+.rating-card:nth-child(2):hover {
+  transform:
+    translateY(-12px)
+    rotateX(6deg)
+    rotateY(4deg)
+    scale(1.03);
+}
+
+/* ---------- stars (pop forward in 3D) ---------- */
+.rating-stars {
+  font-size: 1.75rem;
+  letter-spacing: 4px;
+  color: #fbbf24;
+  margin-bottom: 1.25rem;
+  line-height: 1.2;
+  font-weight: 500;
+  transform: translateZ(30px);
+  text-shadow: 0 2px 6px rgba(251, 191, 36, 0.35);
+  transition: transform 0.4s ease;
+}
+
+.rating-card:hover .rating-stars {
+  transform: translateZ(50px) scale(1.05);
+}
+
+/* ---------- review ---------- */
+.rating-review {
+  font-size: 1.0625rem;
+  font-weight: 400;
+  color: #1e293b;
+  margin-bottom: 1.25rem;
+  line-height: 1.6;
+  max-width: 95%;
+  flex: 1;
+  transform: translateZ(20px);
+  transition: transform 0.4s ease;
+}
+
+.rating-card:hover .rating-review {
+  transform: translateZ(35px);
+}
+
+/* ---------- client name ---------- */
+.rating-client {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: #334155;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  margin-top: auto;
+  padding-top: 0.25rem;
+  border-top: 1px solid #e9eef3;
+  width: 60px;
+  transition: width 0.25s ease, transform 0.4s ease, color 0.3s ease;
+  transform: translateZ(15px);
+}
+
+.rating-card:hover .rating-client {
+  width: 90px;
+  color: #0b1b2f;
+  transform: translateZ(30px);
+}
+
+/* ---------- shine / gloss overlay (3D effect boost) ---------- */
+.rating-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    130deg,
+    rgba(255, 255, 255, 0) 40%,
+    rgba(255, 255, 255, 0.55) 50%,
+    rgba(255, 255, 255, 0) 60%
+  );
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+  transform: translateZ(1px);
+}
+
+.rating-card:hover::after {
+  opacity: 1;
+}
+
+/* ---------- responsive ---------- */
+@media (max-width: 900px) {
+  .rating-grid { gap: 1.5rem; }
+  .rating-card { padding: 1.75rem 1.25rem; }
+  .rating-heading { font-size: 2rem; }
+}
+
+@media (max-width: 700px) {
+  .rating-grid {
+    grid-template-columns: 1fr;
+    max-width: 450px;
+    margin: 0 auto;
+    gap: 1.5rem;
+  }
+  .rating-section { padding: 2rem 1rem; perspective: 900px; }
+  .rating-heading { font-size: 1.9rem; }
+  .rating-subheading { font-size: 1rem; margin-bottom: 2rem; }
+  .rating-stars { font-size: 1.6rem; }
+
+  /* soften 3D on mobile for performance/readability */
+  .rating-card:hover {
+    transform: translateY(-8px) rotateX(3deg) scale(1.02);
+  }
+}
+
+@media (max-width: 380px) {
+  .rating-card { padding: 1.5rem 1rem; }
+  .rating-review { font-size: 0.98rem; }
+}
+
+/* respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .rating-card,
+  .rating-card:hover,
+  .rating-card::after,
+  .rating-stars,
+  .rating-review,
+  .rating-client {
+    transition: none !important;
+    transform: none !important;
+  }
+}

@@ -1,0 +1,279 @@
+.rating-section-4 {
+    width: 100%;
+    padding: 3rem 1.5rem;
+    background: radial-gradient(circle at 30% 20%, #dcfce7 0%, #bbf7d0 60%, #86efac 100%);
+    perspective: 1400px;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    display: flex;
+    justify-content: center;
+}
+
+.rating-container-4 {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* ✨ Golden-Yellow Heading with Green Accent */
+.rating-heading-4 {
+    display: inline-block;
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: #14532d;
+
+    /* Yellow-Golden background */
+    background: linear-gradient(135deg, #fef08a 0%, #fde047 50%, #facc15 100%);
+
+    padding: 0.6rem 2rem;
+    border-radius: 14px;
+    margin-bottom: 1rem;
+
+    box-shadow:
+        -4px -4px 10px rgba(255, 255, 255, 0.6),
+        6px 6px 16px rgba(22, 101, 52, 0.35),
+        0 8px 24px rgba(250, 204, 21, 0.5),
+        inset 0 -3px 6px rgba(180, 140, 0, 0.3),
+        inset 0 3px 6px rgba(255, 255, 255, 0.7);
+
+    text-shadow:
+        0 1px 0 rgba(255, 255, 255, 0.7),
+        0 2px 3px rgba(180, 140, 0, 0.35);
+
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    letter-spacing: 0.02em;
+}
+
+.rating-subheading-4 {
+    font-size: 1.125rem;
+    color: #166534;
+    margin-bottom: 2.5rem;
+    text-shadow: 0 1px 3px rgba(255, 255, 255, 0.6);
+}
+
+/* 4 cards — 2x2 grid on desktop */
+.rating-grid-4 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    transform-style: preserve-3d;
+}
+
+/* ================================================
+   🌿✨ 3D FLOATING CARD — GREEN + YELLOW
+   ================================================ */
+.rating-card-4 {
+    position: relative;
+    border-radius: 22px;
+    padding: 2.2rem 1.8rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    /* Green base with yellow-golden glow */
+    background: linear-gradient(145deg, #22c55e 0%, #16a34a 55%, #15803d 100%);
+
+    color: #ffffff;
+
+    /* Green shadow + golden glow */
+    box-shadow:
+        /* Yellow-golden outer glow (top-left) */
+        -6px -6px 14px rgba(250, 204, 21, 0.5),
+        /* Dark green shadow (bottom-right) */
+        10px 10px 22px rgba(20, 83, 45, 0.6),
+        /* Deep drop shadow */
+        20px 25px 40px rgba(10, 40, 20, 0.5),
+        /* Inner bottom shade */
+        inset 0 -6px 12px rgba(10, 50, 25, 0.5),
+        /* Inner golden highlight */
+        inset 0 6px 12px rgba(250, 204, 21, 0.25);
+
+    border: 1px solid rgba(250, 204, 21, 0.35);
+
+    opacity: 0;
+    transform: translateY(40px) rotateX(-18deg) scale(0.94);
+    transform-style: preserve-3d;
+    will-change: transform, box-shadow;
+
+    transition:
+        opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+        transform 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+        box-shadow 0.5s ease;
+}
+
+/* Golden-yellow border effect */
+.rating-card-4::before {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    border-radius: 24px;
+    padding: 2px;
+    background: linear-gradient(145deg, #fde047 0%, #ca8a04 50%, #fde047 100%);
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    opacity: 0.9;
+    z-index: 0;
+}
+
+.rating-card-4.visible {
+    opacity: 1;
+    transform: translateY(0) rotateX(0) scale(1);
+    animation: floatCard4 4s ease-in-out infinite;
+}
+
+@keyframes floatCard4 {
+    0%   { transform: translateY(0px) rotateX(0deg) rotateY(0deg); }
+    50%  { transform: translateY(-12px) rotateX(2deg) rotateY(-1deg); }
+    100% { transform: translateY(0px) rotateX(0deg) rotateY(0deg); }
+}
+
+/* Har card ka float timing different */
+.rating-card-4:nth-child(1) { animation-delay: 0s; }
+.rating-card-4:nth-child(2) { animation-delay: 0.6s; }
+.rating-card-4:nth-child(3) { animation-delay: 1.2s; }
+.rating-card-4:nth-child(4) { animation-delay: 1.8s; }
+
+/* Hover — pause float + 3D tilt + deeper golden glow */
+.rating-card-4:hover {
+    animation-play-state: paused;
+    transform: translateY(-14px) rotateX(8deg) rotateY(-5deg) scale(1.04);
+    box-shadow:
+        -8px -8px 20px rgba(250, 204, 21, 0.7),
+        16px 16px 32px rgba(20, 83, 45, 0.7),
+        30px 38px 65px rgba(10, 40, 20, 0.6),
+        inset 0 -8px 16px rgba(10, 50, 25, 0.6),
+        inset 0 8px 16px rgba(250, 204, 21, 0.35);
+}
+
+.rating-card-4:nth-child(2):hover,
+.rating-card-4:nth-child(4):hover {
+    transform: translateY(-14px) rotateX(8deg) rotateY(5deg) scale(1.04);
+}
+
+/* ⭐ Stars — Yellow-Golden */
+.rating-stars-4 {
+    font-size: 1.75rem;
+    letter-spacing: 4px;
+    color: #fde047;
+    margin-bottom: 1rem;
+    transform: translateZ(30px);
+    transition: transform 0.4s ease;
+    text-shadow:
+        0 1px 0 #ca8a04,
+        0 2px 0 #a16207,
+        0 3px 4px rgba(0, 0, 0, 0.5),
+        0 5px 15px rgba(250, 204, 21, 0.6);
+}
+
+.rating-card-4:hover .rating-stars-4 {
+    transform: translateZ(55px) scale(1.05);
+    text-shadow:
+        0 1px 0 #ca8a04,
+        0 2px 0 #a16207,
+        0 3px 4px rgba(0, 0, 0, 0.5),
+        0 5px 20px rgba(250, 204, 21, 1);
+}
+
+/* 📌 Title — Yellow-Golden */
+.rating-title-4 {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #fef08a;
+    margin-bottom: 0.85rem;
+    letter-spacing: 0.02em;
+    transform: translateZ(28px);
+    transition: transform 0.4s ease, color 0.4s ease, text-shadow 0.4s ease;
+    text-shadow:
+        0 1px 0 rgba(0, 0, 0, 0.5),
+        0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.rating-card-4:hover .rating-title-4 {
+    transform: translateZ(48px);
+    color: #fde047;
+    text-shadow:
+        0 1px 0 rgba(0, 0, 0, 0.5),
+        0 2px 4px rgba(0, 0, 0, 0.4),
+        0 0 25px rgba(250, 204, 21, 0.9);
+}
+
+/* 💬 Review — White text */
+.rating-review-4 {
+    font-size: 0.95rem;
+    color: #ffffff;
+    margin-bottom: 1rem;
+    line-height: 1.65;
+    flex: 1;
+    transform: translateZ(20px);
+    transition: transform 0.4s ease;
+    text-align: center;
+    text-shadow:
+        0 1px 1px rgba(0, 0, 0, 0.4),
+        0 2px 3px rgba(0, 0, 0, 0.25);
+}
+
+.rating-card-4:hover .rating-review-4 {
+    transform: translateZ(38px);
+}
+
+/* ✨ Shine — Yellow shimmer */
+.rating-card-4::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(
+        120deg,
+        rgba(250, 204, 21, 0) 30%,
+        rgba(250, 204, 21, 0.4) 50%,
+        rgba(250, 204, 21, 0) 70%
+    );
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+    z-index: 1;
+}
+
+.rating-card-4:hover::after {
+    opacity: 1;
+}
+
+/* 📱 Responsive */
+@media (max-width: 900px) {
+    .rating-heading-4 { font-size: 2rem; }
+    .rating-grid-4 { gap: 1.5rem; }
+}
+
+@media (max-width: 700px) {
+    .rating-grid-4 {
+        grid-template-columns: 1fr;
+        max-width: 420px;
+        margin: 0 auto;
+    }
+    .rating-section-4 {
+        perspective: 900px;
+        padding: 2rem 1rem;
+        background: radial-gradient(circle at 30% 20%, #dcfce7 0%, #86efac 100%);
+    }
+    .rating-card-4:hover {
+        transform: translateY(-10px) rotateX(4deg) scale(1.03);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .rating-card-4,
+    .rating-card-4:hover,
+    .rating-card-4::after,
+    .rating-stars-4,
+    .rating-title-4,
+    .rating-review-4 {
+        transition: none !important;
+        transform: none !important;
+        animation: none !important;
+    }
+}

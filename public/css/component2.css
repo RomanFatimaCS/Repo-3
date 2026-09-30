@@ -1,0 +1,230 @@
+.rating-section-2 {
+    width: 100%;
+    padding: 3rem 1.5rem;
+    background: radial-gradient(circle at 30% 20%, #dbeafe 0%, #bfdbfe 60%, #93c5fd 100%);
+    perspective: 1400px;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    display: flex;
+    justify-content: center;
+}
+
+.rating-container-2 {
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.rating-heading-2 {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: #0b1b2f;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.rating-subheading-2 {
+    font-size: 1.125rem;
+    color: #475569;
+    margin-bottom: 2.5rem;
+}
+
+/* 2 cards side by side */
+.rating-grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    transform-style: preserve-3d;
+}
+
+/* ================================================
+   🔵 3D FLOATING CARD — Blue Gradient
+   ================================================ */
+.rating-card-2 {
+    position: relative;
+    border-radius: 22px;
+    padding: 2.2rem 1.8rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    background: linear-gradient(145deg, #4facfe 0%, #00c6ff 100%);
+    color: #ffffff;
+
+    box-shadow:
+        -6px -6px 14px rgba(255, 255, 255, 0.35),
+        10px 10px 22px rgba(0, 80, 160, 0.45),
+        20px 25px 40px rgba(0, 40, 100, 0.35),
+        inset 0 -6px 12px rgba(0, 60, 140, 0.35),
+        inset 0 6px 12px rgba(255, 255, 255, 0.25);
+
+    border: 1px solid rgba(255, 255, 255, 0.15);
+
+    opacity: 0;
+    transform: translateY(40px) rotateX(-18deg) scale(0.94);
+    transform-style: preserve-3d;
+    will-change: transform, box-shadow;
+
+    transition:
+        opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+        transform 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+        box-shadow 0.5s ease;
+}
+
+.rating-card-2.visible {
+    opacity: 1;
+    transform: translateY(0) rotateX(0) scale(1);
+    animation: floatCard2 4s ease-in-out infinite;
+}
+
+@keyframes floatCard2 {
+    0%   { transform: translateY(0px) rotateX(0deg) rotateY(0deg); }
+    50%  { transform: translateY(-12px) rotateX(2deg) rotateY(-1deg); }
+    100% { transform: translateY(0px) rotateX(0deg) rotateY(0deg); }
+}
+
+/* Har card ka float timing different */
+.rating-card-2:nth-child(1) { animation-delay: 0s; }
+.rating-card-2:nth-child(2) { animation-delay: 1s; }
+
+/* Hover — pause float + 3D tilt */
+.rating-card-2:hover {
+    animation-play-state: paused;
+    transform: translateY(-14px) rotateX(8deg) rotateY(-5deg) scale(1.04);
+    box-shadow:
+        -8px -8px 18px rgba(255, 255, 255, 0.4),
+        14px 14px 30px rgba(0, 80, 160, 0.5),
+        28px 35px 60px rgba(0, 40, 100, 0.45),
+        inset 0 -8px 16px rgba(0, 60, 140, 0.4),
+        inset 0 8px 16px rgba(255, 255, 255, 0.3);
+}
+
+.rating-card-2:nth-child(2):hover {
+    transform: translateY(-14px) rotateX(8deg) rotateY(5deg) scale(1.04);
+}
+
+/* ⭐ Stars */
+.rating-stars-2 {
+    font-size: 1.75rem;
+    letter-spacing: 4px;
+    color: #ffd700;
+    margin-bottom: 1rem;
+    transform: translateZ(30px);
+    transition: transform 0.4s ease;
+    text-shadow:
+        0 1px 0 #b8860b,
+        0 2px 0 #a07408,
+        0 3px 4px rgba(0, 0, 0, 0.4),
+        0 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.rating-card-2:hover .rating-stars-2 {
+    transform: translateZ(55px) scale(1.05);
+}
+
+/* 📌 Title */
+.rating-title-2 {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 0.85rem;
+    letter-spacing: 0.02em;
+    transform: translateZ(28px);
+    transition: transform 0.4s ease, color 0.4s ease;
+    text-shadow:
+        0 1px 0 rgba(0, 0, 0, 0.4),
+        0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.rating-card-2:hover .rating-title-2 {
+    transform: translateZ(48px);
+    color: #ffd700;
+}
+
+/* 💬 Review */
+.rating-review-2 {
+    font-size: 0.95rem;
+    color: #ffffff;
+    margin-bottom: 1rem;
+    line-height: 1.65;
+    flex: 1;
+    transform: translateZ(20px);
+    transition: transform 0.4s ease;
+    text-align: center;
+    text-shadow:
+        0 1px 1px rgba(0, 0, 0, 0.4),
+        0 2px 3px rgba(0, 0, 0, 0.2);
+}
+
+.rating-card-2:hover .rating-review-2 {
+    transform: translateZ(38px);
+}
+
+/* ✨ Shine */
+.rating-card-2::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(
+        120deg,
+        rgba(255, 255, 255, 0) 30%,
+        rgba(255, 255, 255, 0.45) 50%,
+        rgba(255, 255, 255, 0) 70%
+    );
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+}
+
+.rating-card-2:hover::after {
+    opacity: 1;
+}
+
+/* 🌑 Top bevel */
+.rating-card-2::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 10%;
+    right: 10%;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.7),
+        transparent
+    );
+    border-radius: 20px;
+    pointer-events: none;
+}
+
+/* 📱 Responsive */
+@media (max-width: 700px) {
+    .rating-grid-2 {
+        grid-template-columns: 1fr;
+        max-width: 420px;
+        margin: 0 auto;
+    }
+    .rating-section-2 {
+        perspective: 900px;
+        padding: 2rem 1rem;
+    }
+    .rating-card-2:hover {
+        transform: translateY(-10px) rotateX(4deg) scale(1.03);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .rating-card-2,
+    .rating-card-2:hover,
+    .rating-card-2::after,
+    .rating-stars-2,
+    .rating-title-2,
+    .rating-review-2 {
+        transition: none !important;
+        transform: none !important;
+        animation: none !important;
+    }
+}
