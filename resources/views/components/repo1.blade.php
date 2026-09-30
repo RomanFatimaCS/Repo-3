@@ -61,6 +61,18 @@
       </tbody>
     </table>
   </section>
+   <!-- Table -->
+    <table id="studentTable">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th>Reg No</th>
+          <th>Department</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody id="tableBody">
 
   <!-- Projects Section -->
   <section id="projects" class="section">
