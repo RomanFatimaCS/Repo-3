@@ -10,7 +10,7 @@
         <div class="rating-grid-3">
 
             <!-- Card 1 — Invoice Management -->
-            
+           
 
             <!-- Card 2 — Payroll Processing -->
             
