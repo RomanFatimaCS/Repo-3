@@ -307,14 +307,7 @@
     }
 
     /* ---------- 3.6: Search Function ---------- */
-    function searchPatient() {
-      let query = document.getElementById("search").value.toLowerCase();
-      let rows = document.querySelectorAll("#tableBody tr");
-
-      rows.forEach((row) => {
-        let text = row.innerText.toLowerCase();
-        row.style.display = text.includes(query) ? "" : "none";
-      });
+   
     }
 
     /* ---------- 3.7: Update Stats Function ---------- */
