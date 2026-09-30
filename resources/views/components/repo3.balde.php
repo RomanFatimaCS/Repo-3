@@ -252,10 +252,7 @@
     ];
 
     /* ---------- 3.2: Page Load ---------- */
-    window.onload = function () {
-      renderTable();
-    };
-
+  
     /* ---------- 3.3: Add Patient Function ---------- */
     function addPatient() {
       let name = document.getElementById("pname").value.trim();
