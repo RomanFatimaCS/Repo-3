@@ -10,15 +10,7 @@
         <div class="rating-grid-3">
 
             <!-- Card 1 — Invoice Management -->
-            <div class="rating-card-3">
-                <div class="rating-stars-3">★★★★★</div>
-                <h3 class="rating-title-3">Invoice Management</h3>
-                <p class="rating-review-3">
-                    Create, send, and track professional invoices in seconds.
-                    Automate reminders for overdue payments and get paid faster
-                    with integrated payment gateways.
-                </p>
-            </div>
+            
 
             <!-- Card 2 — Payroll Processing -->
             
