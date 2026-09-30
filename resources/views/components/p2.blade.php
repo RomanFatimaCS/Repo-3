@@ -21,15 +21,7 @@
             </div>
 
             <!-- Card 2 — Customer Insights -->
-            <div class="rating-card-4">
-                <div class="rating-stars-4">★★★★★</div>
-                <h3 class="rating-title-4">Customer Insights</h3>
-                <p class="rating-review-4">
-                    Understand your customers deeply. Segment by behavior,
-                    track retention, and personalize offers to build lasting
-                    relationships.
-                </p>
-            </div>
+           
 
             <!-- Card 3 — Predictive Forecast -->
             <div class="rating-card-4">
