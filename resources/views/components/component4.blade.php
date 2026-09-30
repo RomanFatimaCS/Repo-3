@@ -60,10 +60,10 @@
 
 </section>
 
-@push('styles')
+<!-- @push('styles')
     <link rel="stylesheet" href="{{ asset('css/component4.css') }}">
 @endpush
 
 @push('scripts')
     <script src="{{ asset('js/component4.js') }}" defer></script>
-@endpush
+@endpush -->

@@ -1,6 +1,3 @@
-@extends('layout.app')
-
-@section('content')
 <section class="rating-section">
 
     <!-- CSS -->
@@ -12,8 +9,6 @@
         <p class="rating-subheading">What we offer to our clients</p>
 
         <div class="rating-grid">
-
-            <!-- ================= ROW 1 ================= -->
 
             <!-- Card 1 — Double Entry Accounting -->
             <div class="rating-card">
@@ -47,8 +42,6 @@
                     to maximize efficiency.
                 </p>
             </div>
-
-            <!-- ================= ROW 2 ================= -->
 
             <!-- Card 4 — Asset Tracking -->
             <div class="rating-card">
@@ -90,12 +83,3 @@
     <script src="{{ asset('js/component1.js') }}" defer></script>
 
 </section>
-@endsection
-
-@push('styles')
-    <link rel="stylesheet" href="{{ asset('css/component1.css') }}">
-@endpush
-
-@push('scripts')
-    <script src="{{ asset('js/component1.js') }}" defer></script>
-@endpush

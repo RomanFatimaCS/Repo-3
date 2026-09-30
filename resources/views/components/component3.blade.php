@@ -49,10 +49,3 @@
 
 </section>
 
-@push('styles')
-    <link rel="stylesheet" href="{{ asset('css/component3.css') }}">
-@endpush
-
-@push('scripts')
-    <script src="{{ asset('js/component3.js') }}" defer></script>
-@endpush

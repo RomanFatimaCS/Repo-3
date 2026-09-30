@@ -38,10 +38,3 @@
 
 </section>
 
-@push('styles')
-    <link rel="stylesheet" href="{{ asset('css/component2.css') }}">
-@endpush
-
-@push('scripts')
-    <script src="{{ asset('js/component2.js') }}" defer></script>
-@endpush

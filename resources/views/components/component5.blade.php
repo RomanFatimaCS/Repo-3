@@ -70,10 +70,3 @@
 
 </section>
 
-@push('styles')
-    <link rel="stylesheet" href="{{ asset('css/component5.css') }}">
-@endpush
-
-@push('scripts')
-    <script src="{{ asset('js/component5.js') }}" defer></script>
-@endpush
