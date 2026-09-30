@@ -329,6 +329,22 @@
         renderTable();
       }
     }
+        <!-- ============================================
+         SECTION 2.7: MEMBERS SECTION (NEW PART)
+         ============================================ -->
+    <div class="members-section">
+      <h2>Library Members</h2>
+
+      <div class="member-input">
+        <input type="text" id="memName" placeholder="Member Name">
+        <input type="text" id="memReg" placeholder="Reg No (2022-GWG-1076)">
+        <button onclick="addMember()">Add Member</button>
+      </div>
+
+      <div class="member-list" id="memberList">
+        <!-- Members JavaScript se aayenge -->
+      </div>
+    </div>
 
     /* ---------- 3.7: Search Function ---------- */
     function searchBook() {
